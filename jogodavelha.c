@@ -3,15 +3,19 @@
 #include <stdlib.h>
 #include <locale.h>
 
+
+// Função que chama o tabuleiro
+
 void tabuleiro (char local[3][3]) {
 	system("cls");
-	printf("\t-------------\n");
-	printf("\t| %c | %c | %c |\n", local[0][0], local[0][1], local[0][2]);
-	printf("\t-------------\n");
-	printf("\t| %c | %c | %c |\n", local[1][0], local[1][1], local[1][2]);
-	printf("\t-------------\n");
-	printf("\t| %c | %c | %c |\n", local[2][0], local[2][1], local[2][2]);
-	printf("\t-------------\n");
+	printf(" 	      1   2   3\n");
+	printf("\t    -------------\n");
+	printf("\t 1  | %c | %c | %c |\n", local[0][0], local[0][1], local[0][2]);
+	printf("\t    -------------\n");
+	printf("\t 2  | %c | %c | %c |\n", local[1][0], local[1][1], local[1][2]);
+	printf("\t    -------------\n");
+	printf("\t 3  | %c | %c | %c |\n", local[2][0], local[2][1], local[2][2]);
+	printf("\t    -------------\n");
 }
 int main () {
 	int i, j;
@@ -23,10 +27,14 @@ int main () {
 	
 	setlocale (LC_ALL, "Portuguese");
 	
+	// Nomes dos jogadores
+	
 	printf("Digite o nome do Jogador X: ");
 	fgets(jogador1,50,stdin);
 	printf("Digite o nome do Jogador O: ");
 	fgets(jogador2,50,stdin);
+	
+	//Matriz que vai receber a função tabuleiro
 	
 	
 	char local[3][3] = {
@@ -37,6 +45,8 @@ int main () {
 	do {
 		cont_jogadas = 1;
 		
+		//Entrada - ler os 9 caracteres e guardar na matriz local 3 x 3
+		
 		for (i = 0; i <= 2; i++) {
 			for (j = 0; j <= 2; j++) {
 				local[i][j] = ' '; 
@@ -44,6 +54,8 @@ int main () {
 		}
 		do {
 			tabuleiro(local);
+			
+			// Mostra a vez do jogador
 			
 			if (vez%2==0) {
 				printf("\nJogador X: %s\n",jogador1);
@@ -57,6 +69,9 @@ int main () {
 			printf("\nDigite a coluna na qual a peça está localizada: ");
 			scanf("%i", &c);
 			
+			
+			// Condições para uma jogada ser inválida 
+			
 			if (l < 1 || c < 1 || l > 3 || c > 3) {
 				l = 0;
 				c = 0;
@@ -65,6 +80,9 @@ int main () {
 				c = 0;
 			vez++;
 			cont_jogadas++;
+			
+			// Jogadas válidas
+			
 			} else {
 				if (vez%2 == 0) {
 					local[l - 1][c - 1] = 'X';
@@ -129,6 +147,8 @@ int main () {
 			}
 		} while(cont_jogadas <= 9);
 		tabuleiro(local);
+		
+		// resultado do jogo
 		
 		if (cont_jogadas==10) {
 			printf("\nEmpate");
