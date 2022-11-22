@@ -37,15 +37,12 @@ int main () {
 	//Matriz que vai receber a função tabuleiro
 	
 	
-	char local[3][3] = {
-		{'1', '2', '3'},
-		{'1', '2', '3'},
-		{'1', '2', '3'}, };
+	char local[3][3];
 	
 	do {
 		cont_jogadas = 1;
 		
-		//Entrada - ler os 9 caracteres e guardar na matriz local 3 x 3
+		//Entrada 
 		
 		for (i = 0; i <= 2; i++) {
 			for (j = 0; j <= 2; j++) {
