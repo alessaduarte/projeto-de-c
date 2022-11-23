@@ -6,6 +6,6 @@ Jogo da Velha programado em C para as matérias:
 
 Grupo:
 - Alessa Danúbia Barros Ferreira Duarte
-- Beatriz Emmanuele
+- Beatriz Emmanuele Ferreira do Nascimento
 - Erick Henrique Pereira Macena
 - Maria Luísa da Silva Pereira
